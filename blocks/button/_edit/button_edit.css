@@ -4,7 +4,7 @@
   position: absolute;
   top: 15px;
   right: -42px;
-  background: url('./button_edit.svg') center no-repeat;
+  background: url('../../../images/button/button_edit.svg') center no-repeat;
   border: 1px solid #fff;
 }
 

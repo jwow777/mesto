@@ -14,13 +14,18 @@ closeButton.addEventListener('click', function () {
   popupOpened.classList.remove('popup_opened');
 }); 
 
+// Внесение в popup данных, которые уже на странице
+
+let startFullName = document.querySelector('.profile__fullName').textContent;
+let startDescription = document.querySelector('.profile__description').textContent;
+
+let fullName = document.querySelector('.button_text[name="fullName"]');
+let description = document.querySelector('.button_text[name="description"]');
+
+fullName.setAttribute('value', startFullName);
+description.setAttribute('value', startDescription);
+
 // Сохранение данных
-
-// let fullName = document.querySelector('.profile__fullName');
-// let description = document.querySelector('.profile__description');
-
-// console.log(fullName.textContent);
-// console.log(description.textContent);
 
 let formElement = document.querySelector('.popup__container'); // Находим форму в DOM
 
@@ -28,12 +33,17 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
     // Находим поля формы в DOM
-    let nameInput = document.querySelector('.');
-    let jobInput = document.querySelector('.'); 
-
     // Получите значение полей из свойства value
+    let nameInput = document.querySelector('.button_text[name="fullName"]').value;
+    let jobInput = document.querySelector('.button_text[name="description"]').value; 
+
     // Выберите элементы, куда должны быть вставлены значения полей
     // Вставьте новые значения с помощью textContent
+    document.querySelector('.profile__fullName').textContent = nameInput;
+    document.querySelector('.profile__description').textContent = jobInput;
+
+    // Сохраняет и закрывает popup
+    popupOpened.classList.remove('popup_opened');
 }
 
 formElement.addEventListener('submit', formSubmitHandler); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»

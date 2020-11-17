@@ -8,11 +8,11 @@
   </head>
   <body class="page">
     <header class="header">
-      <img src="./blocks/header/__logo/logo.svg" alt="Место Россия" class="header__logo">
+      <img src="./images/header/logo.svg" alt="Место Россия" class="header__logo">
     </header>
     <main class="content">
       <section class="profile">
-        <img src="./blocks/profile/__avatar/avatar.png" alt="Аватар" class="profile__avatar">
+        <img src="./images/profile/avatar.png" alt="Аватар" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__fullName">Жак-Ив Кусто</h1>
           <input type="button" class="button button_edit">
@@ -22,42 +22,42 @@
       </section>
       <ul class="elements">
         <li class="element">
-          <img src="./blocks/element/mesto1.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Карачаевск</h2>
             <input type="button" class="button button_like">
           </div>
         </li>
         <li class="element">
-          <img src="./blocks/element/mesto2.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Гора Эльбрус</h2>
             <input type="button" class="button button_like">
           </div>
         </li>
         <li class="element">
-          <img src="./blocks/element/mesto3.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Домбай</h2>
             <input type="button" class="button button_like">
           </div>
         </li>
         <li class="element">
-          <img src="./blocks/element/mesto2.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Гора Эльбрус</h2>
             <input type="button" class="button button_like">
           </div>
         </li>
         <li class="element">
-          <img src="./blocks/element/mesto3.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Домбай</h2>
             <input type="button" class="button button_like">
           </div>
         </li>
         <li class="element">
-          <img src="./blocks/element/mesto1.jpg" alt="Место" class="element__image">
+          <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
           <div class="element__container">
             <h2 class="element__location">Карачаево-Черкесия</h2>
             <input type="button" class="button button_like">
@@ -65,10 +65,10 @@
         </li>
       </ul>
       <div class="popup">
-        <form class="popup__container">
+        <form class="popup__container" id="form">
           <h2 class="popup__editName">Редактировать профиль</h2>
-          <input type="text" name="" id="" class="button button_text" placeholder="Имя">
-          <input type="text" name="" id="" class="button button_text" placeholder="О себе">
+          <input type="text" name="fullName" class="button button_text" placeholder="Имя" value="">
+          <input type="text" name="description" class="button button_text" placeholder="О себе" value="">
           <input type="submit" value="Сохранить" class="button button_save">
           <input type="button" class="button button_close">
         </form>

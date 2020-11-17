@@ -1,7 +1,7 @@
 .button_add {
   width: 150px;
   min-height: 50px;
-  background: url('./button_plus.svg') center no-repeat;
+  background: url('../../../images/button/button_plus.svg') center no-repeat;
   border: 2px solid #fff;
   border-radius: 2px;
   margin-left: auto;
