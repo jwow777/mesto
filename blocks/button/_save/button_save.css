@@ -1,0 +1,14 @@
+.button_save {
+  min-height: 50px;
+  margin-top: 31px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 600px) {
+  .button_save {
+    margin-top: 34px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
