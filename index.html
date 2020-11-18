@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
-    <title>Mesto</title>
+    <title>Mesto Russia</title>
   </head>
   <body class="page">
     <header class="header">
@@ -14,69 +14,73 @@
       <section class="profile">
         <img src="./images/profile/avatar.png" alt="Аватар" class="profile__avatar">
         <div class="profile__info">
-          <h1 class="profile__fullName">Жак-Ив Кусто</h1>
-          <button type="button" class="button button_edit"></button>
+          <div class="profile__info-container">
+            <h1 class="profile__full-name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__button-edit button"></button>
+          </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <button type="button" class="button button_add"></button>
+        <button type="button" class="profile__button-add button"></button>
       </section>
-      <ul class="elements">
-        <li class="element">
-          <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Карачаевск</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Гора Эльбрус</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Домбай</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Гора Эльбрус</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Домбай</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
-          <div class="element__container">
-            <h2 class="element__location">Карачаево-Черкесия</h2>
-            <button type="button" class="button button_like"></button>
-          </div>
-        </li>
-      </ul>
-      <div class="popup">
-        <form class="popup__container">
-          <h2 class="popup__editName">Редактировать профиль</h2>
-          <input type="text" name="fullName" class="button button_text" placeholder="Имя">
-          <input type="text" name="description" class="button button_text" placeholder="О себе">
-          <button type="submit" class="button button_save">Сохранить</button>
-          <button type="button" class="button button_close"></button>
-        </form>
-      </div>
+      <section class="elements">
+        <ul class="elements__container">
+          <li class="element">
+            <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Карачаевск</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Гора Эльбрус</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Домбай</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/element/mesto2.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Гора Эльбрус</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/element/mesto3.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Домбай</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/element/mesto1.jpg" alt="Место" class="element__image">
+            <div class="element__container">
+              <h2 class="element__location">Карачаево-Черкесия</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <script src="./vendor/scripts.js"></script>
+    <div class="popup">
+      <form class="popup__container" name="edit-data">
+        <h2 class="popup__edit-name">Редактировать профиль</h2>
+        <input type="text" name="full-name" class="popup__input" placeholder="Имя">
+        <input type="text" name="description" class="popup__input" placeholder="О себе">
+        <button type="submit" class="popup__button-save button">Сохранить</button>
+      </form>
+      <button type="button" class="popup__button-close button"></button>
+    </div>
+    <script src="./blocks/popup/popup.js"></script>
   </body>
 </html>
