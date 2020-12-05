@@ -1,5 +1,5 @@
 .popup {
-  display: none;
+  display: grid;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -9,13 +9,7 @@
   align-content: center;
   grid-template-columns: repeat(2, max-content);
   grid-template-rows: repeat(2, max-content);
-  background: rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 508px) {
-  .popup_opened {
-    grid-template-columns: max-content;
-    grid-template-rows: repeat(2, max-content);
-    row-gap: 13px;
-  }
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.65s ease-in-out, visibility 0s ease 0.65s;
 }
