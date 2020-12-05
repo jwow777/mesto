@@ -6,8 +6,13 @@
   position: relative;
   cursor: pointer;
   padding: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .button:hover {
   opacity: 0.6;
+}
+
+.button:focus {
+  outline: none;
 }

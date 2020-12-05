@@ -8,3 +8,12 @@
   padding: 13px 0;
   margin-bottom: 17px;
 }
+
+@media screen and (max-width: 508px) {
+  .popup__input {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 0;
+    margin-bottom: 12px;
+  }
+}
