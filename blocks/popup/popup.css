@@ -7,7 +7,9 @@
   left: 0;
   justify-content: center;
   align-content: center;
-  grid-template-columns: repeat(2, max-content);
+  padding-left: 40px;
+  padding-right: 10px;
+  box-sizing: border-box;
   grid-template-rows: repeat(2, max-content);
   visibility: hidden;
   opacity: 0;
