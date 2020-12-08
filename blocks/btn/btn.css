@@ -1,4 +1,4 @@
-.button {
+.btn {
   background: #000;
   box-sizing: border-box;
   border: 0;
@@ -9,10 +9,10 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.button:hover {
+.btn:hover {
   opacity: 0.6;
 }
 
-.button:focus {
+.btn:focus {
   outline: none;
 }

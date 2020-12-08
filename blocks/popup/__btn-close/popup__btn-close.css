@@ -1,7 +1,7 @@
-.popup__button-close {
+.popup__btn-close {
   grid-column: 2/3;
   grid-row: 1/2;
-  background: url('../../../images/button/button_plus.svg') center no-repeat;
+  background: url('../../../images/btn/btn_plus.svg') center no-repeat;
   background-size: 100%;
   width: 40px;
   height: 40px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 508px) {
-  .popup__button-close {
+  .popup__btn-close {
     justify-self: end;
     width: 30px;
     height: 30px;

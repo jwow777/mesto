@@ -1,14 +1,14 @@
-.profile__button-edit {
+.profile__btn-edit {
   min-width: 24px;
   min-height: 24px;
-  background: url('../../../images/button/button_edit.svg') center no-repeat;
+  background: url('../../../images/btn/btn_edit.svg') center no-repeat;
   border: 1px solid #fff;
   align-self: center;
   margin: 8px 0 0 19px;
 }
 
 @media screen and (max-width: 508px) {
-  .profile__button-edit {
+  .profile__btn-edit {
     min-width: 18px;
     min-height: 18px;
     position: absolute;
