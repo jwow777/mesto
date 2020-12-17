@@ -62,44 +62,24 @@ function composeItem(item) {
   return newCard;
 }
 
+// function keyHandler(evt) {
+//   if (evt.key === "Escape" || evt.key === "Esc") {
+//     closePopup(editProfilePopup);
+//   }
+// } 
+
 function openPopupFormEdit() {
   openPopup(editProfilePopup);
   // Вставил в форму значения, которые уже на сайте
   nameInput.value = authorName.textContent;
   descriptionInput.value = authorDescription.textContent;
-}
-
-// Сохранение данных в 1 форме
-function submitFormEdit(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-
-  // Вставьте новые значения с помощью textContent
-  authorName.textContent = nameInput.value;
-  authorDescription.textContent = descriptionInput.value;
-
-  closePopup(editProfilePopup);
+  
 }
 
 function openPopupFormAddCard() {
   openPopup(addCardPopup);
   // Обнуление значений input
-  titleCardInput.value = "";
-  linkCardInput.value = "";
-}
-
-// Сохранение данных в 2 форме
-function submitFormAddCard(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-
-  const inputPlace = titleCardInput.value;
-  const inputUrl = linkCardInput.value;
-  const newItemHTML = composeItem({
-    name: inputPlace,
-    link: inputUrl
-  });
-  сardsContainerElement.prepend(newItemHTML);
-
-  closePopup(addCardPopup);
+  addCardForm.reset();
 }
 
 function renderList() {
@@ -109,12 +89,12 @@ function renderList() {
 
 renderList();
 
+
 editButton.addEventListener("click", () => openPopupFormEdit());
-editProfileForm.addEventListener("submit", submitFormEdit);
+// document.addEventListener("keydown", keyHandler);
 closeButtonEditPopup.addEventListener("click", () => closePopup(editProfilePopup));
 
 addButton.addEventListener("click", () => openPopupFormAddCard());
-addCardForm.addEventListener("submit", submitFormAddCard);
 closeButtonAddCardPopup.addEventListener("click", () => closePopup(addCardPopup));
 
 closeButtonImagePopup.addEventListener("click", () => closePopup(imagePopup));
