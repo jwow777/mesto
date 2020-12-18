@@ -14,12 +14,7 @@ const hideInputError = (formElement, inputElement, config) => {
 
 const isValid = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(
-      formElement,
-      inputElement,
-      config,
-      inputElement.validationMessage
-    );
+    showInputError(formElement,inputElement,config,inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement, config);
   }
