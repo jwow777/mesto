@@ -25,10 +25,12 @@ const closeButtonImagePopup = document.querySelector(".popup__btn-close_type_ima
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
+  document.addEventListener("keydown", closeByEscape);
 };
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeByEscape);
 };
 
 const closeByOverlay = (popupElement) => (evt) => {
@@ -51,12 +53,12 @@ function composeItem(item) {
   linkElement.src = item.link;
   linkElement.alt = item.name;
 
-  linkElement.addEventListener("click", (evt) => {
+  linkElement.addEventListener("click", () => {
     openPopup(imagePopup);
 
-    popupImage.src = linkElement.src;
-    popupImage.alt = nameElement.textContent;
-    popupDescription.textContent = nameElement.textContent;
+    popupImage.src = item.link;
+    popupImage.alt = item.name;
+    popupDescription.textContent = item.name;
   });
 
   const likeButton = newCard.querySelector(".element__btn-like");
@@ -73,15 +75,10 @@ function composeItem(item) {
   return newCard;
 }
 
-function keyHandler(evt) {
+function closeByEscape(evt) {
   if (evt.key === "Escape") {
-    if (editProfilePopup.classList.contains("popup_opened")) {
-      closePopup(editProfilePopup);
-    } else if (addCardPopup.classList.contains("popup_opened")) {
-      closePopup(addCardPopup);
-    } else if (imagePopup.classList.contains("popup_opened")) {
-      closePopup(imagePopup);
-    }
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
   }
 }
 
@@ -92,10 +89,30 @@ function openPopupFormEdit() {
   descriptionInput.value = authorDescription.textContent;
 }
 
+// Сохранение данных в 1 форме
+function submitFormEdit() {
+  authorName.textContent = nameInput.value;
+  authorDescription.textContent = descriptionInput.value;
+  
+  closePopup(editProfilePopup);
+}
+
 function openPopupFormAddCard() {
   openPopup(addCardPopup);
   // Обнуление значений input
   addCardForm.reset();
+}
+
+function submitFormAddCard() {
+  const inputPlace = titleCardInput.value;
+  const inputUrl = linkCardInput.value;
+  const newItemHTML = composeItem({
+    name: inputPlace,
+    link: inputUrl
+  });
+  сardsContainerElement.prepend(newItemHTML);
+
+  closePopup(addCardPopup);
 }
 
 function renderList() {
@@ -106,11 +123,11 @@ function renderList() {
 renderList();
 
 editButton.addEventListener("click", () => openPopupFormEdit());
+editProfileForm.addEventListener("submit", submitFormEdit);
 closeButtonEditPopup.addEventListener("click", () => closePopup(editProfilePopup));
 
 addButton.addEventListener("click", () => openPopupFormAddCard());
+addCardForm.addEventListener("submit", submitFormAddCard);
 closeButtonAddCardPopup.addEventListener("click", () => closePopup(addCardPopup));
 
 closeButtonImagePopup.addEventListener("click", () => closePopup(imagePopup));
-
-document.addEventListener("keydown", keyHandler);

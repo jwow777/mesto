@@ -55,20 +55,6 @@ const enableValidation = (config) => {
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      if (formElement === editProfileForm) {
-        authorName.textContent = nameInput.value;
-        authorDescription.textContent = descriptionInput.value;
-        closePopup(editProfilePopup);
-      } else if (formElement === addCardForm) {
-        const inputPlace = titleCardInput.value;
-        const inputUrl = linkCardInput.value;
-        const newItemHTML = composeItem({
-          name: inputPlace,
-          link: inputUrl
-        });
-        сardsContainerElement.prepend(newItemHTML);
-        closePopup(addCardPopup);
-      }
     });
     setEventListeners(formElement, config);
   });
