@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto Russia</title>
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/header/logo.svg" alt="Место Россия" class="header__logo" />
+      <img src="<%=require('./images/header/logo.svg')%>" alt="Место Россия" class="header__logo" />
     </header>
     <main class="content">
       <section class="profile">
-        <img src="./images/profile/avatar.png" alt="Аватар" class="profile__avatar" />
+        <img src="<%=require('./images/profile/avatar.png')%>" alt="Аватар" class="profile__avatar" />
         <div class="profile__info">
           <div class="profile__info-container">
             <h1 class="profile__full-name">Жак-Ив Кусто</h1>
@@ -34,9 +33,9 @@
       <div class="popup__container popup__container_edit">
         <form class="popup__form popup__form_type_edit" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" id="name-input" class="popup__input popup__input_type_name" placeholder="Имя" required minlength="2" maxlength="40" autocomplete="off"/>
+          <input type="text" id="name-input" name="name" class="popup__input popup__input_type_name" placeholder="Имя" required minlength="2" maxlength="40" autocomplete="off" />
           <span class="name-input-error popup__input-error"></span>
-          <input type="text" id="desc-input" class="popup__input popup__input_type_desc" placeholder="О себе" required minlength="2" maxlength="200" autocomplete="off"/>
+          <input type="text" id="desc-input" name="desc" class="popup__input popup__input_type_desc" placeholder="О себе" required minlength="2" maxlength="200" autocomplete="off" />
           <span class="desc-input-error popup__input-error"></span>
           <button type="submit" class="popup__button btn">Сохранить</button>
         </form>
@@ -48,9 +47,9 @@
       <div class="popup__container popup__container_card">
         <form class="popup__form popup__form_type_add" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input type="text" id="title-input" class="popup__input popup__input_type_title" placeholder="Название" required minlength="2" maxlength="30" autocomplete="off"/>
+          <input type="text" id="title-input" name="title" class="popup__input popup__input_type_title" placeholder="Название" required minlength="2" maxlength="30" autocomplete="off" />
           <span class="title-input-error popup__input-error"></span>
-          <input type="url" id="link-input" class="popup__input popup__input_type_link" placeholder="Ссылка на изображение" required autocomplete="off"/>
+          <input type="url" id="link-input" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на изображение" required autocomplete="off" />
           <span class="link-input-error popup__input-error"></span>
           <button type="submit" class="popup__button btn">Создать</button>
         </form>
@@ -76,10 +75,6 @@
         </div>
       </li>
     </template>
-    <script type="module" src="./script/initial-cards.js"></script>
-    <script type="module" src="./script/util.js"></script>
-    <script type="module" src="./script/Card.js"></script>
-    <script type="module" src="./script/FormValidator.js"></script>
-    <script type="module" src="./script/index.js"></script>
+
   </body>
 </html>

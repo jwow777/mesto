@@ -1,15 +1,9 @@
-import { cardSelector } from "./index.js";
-import { closeByEscape } from "./util.js";
-
-const openPopupImage = document.querySelector(".popup_overlay_image");
-const popupImage = document.querySelector(".popup__image");
-const popupDescription = document.querySelector(".popup__description");
-
-class Card {
-  constructor(data) {
-    this._name = data.name;
+export default class Card {
+  constructor(data, cardSelector, handleCardClick) {
+    this._title = data.title;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick.bind(this);
   }
 
   _getTemplate() {
@@ -22,9 +16,9 @@ class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".element__location").textContent = this._name;
+    this._element.querySelector(".element__location").textContent = this._title;
     this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._name;
+    this._element.querySelector(".element__image").alt = this._title;
 
     return this._element;
   }
@@ -38,14 +32,6 @@ class Card {
     delete this._element;
   }
 
-  _handleOpenPopup() {
-    popupImage.src = this._link;
-    popupImage.alt = this._name;
-    popupDescription.textContent = this._name;
-    openPopupImage.classList.add("popup_opened");
-    document.addEventListener("keydown", closeByEscape);
-  }
-
   _setEventListeners() {
     this._element.querySelector(".element__btn-like").addEventListener("click", () => {
       this._handleLikeButton();
@@ -55,10 +41,6 @@ class Card {
       this._handleDeleteButton(evt);
     });
 
-    this._element.querySelector(".element__image").addEventListener("click", () => {
-      this._handleOpenPopup();
-    });
-  };
-};
-
-export { Card };
+    this._element.querySelector(".element__image").addEventListener("click", this._handleCardClick);
+  }
+}
