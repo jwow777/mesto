@@ -7,7 +7,7 @@ import {
   cardsContainerElement, cardSelector,
   authorName, authorDescription,
   nameInput, descriptionInput,
-  openPopupImage
+  openPopupImage, popupImage, popupDescription
 } from "../utils/constants.js";
 
 import { initialCards } from "../utils/initial-cards.js";
@@ -19,12 +19,16 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 
+const createCard = (cardData) => {
+  const newCard = new Card(cardData, cardSelector, handleCardClick).generateCard();
+  cardsList.addItem(newCard);
+}
+
 const cardsList = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const newCard = new Card(cardData, cardSelector, handleCardClick).generateCard();
-      cardsList.addItem(newCard);
+      createCard(cardData);
     }
   },
   cardsContainerElement
@@ -45,14 +49,13 @@ const popupEditProfile = new PopupWithForm(
 const popupAddCard = new PopupWithForm(
   addCardPopup,
   (cardData) => {
-    const newCard = new Card(cardData, cardSelector, handleCardClick).generateCard();
-    cardsList.addItem(newCard);
+    createCard(cardData);
     popupAddCard.close();
   },
   addCardFormValidator
 );
 
-const popupImage = new PopupWithImage(openPopupImage);
+const popupFullImage = new PopupWithImage(openPopupImage, popupImage, popupDescription);
 
 const userInfo = new UserInfo({
   userName: authorName,
@@ -60,7 +63,7 @@ const userInfo = new UserInfo({
 });
 
 function handleCardClick() {
-  popupImage.open(this);
+  popupFullImage.open(this);
 }
 
 const openPopupFormEdit = () => {
@@ -68,6 +71,12 @@ const openPopupFormEdit = () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.userName;
   descriptionInput.value = userData.selfInfo;
+  editProfileFormValidator.resetValidation();
+};
+
+const openPopupAddCard = () => {
+  popupAddCard.open();
+  addCardFormValidator.resetValidation();
 };
 
 cardsList.renderItems();
@@ -79,6 +88,6 @@ popupEditProfile.setEventListeners();
 editButton.addEventListener("click", openPopupFormEdit);
 
 popupAddCard.setEventListeners();
-addButton.addEventListener("click", () => popupAddCard.open());
+addButton.addEventListener("click", openPopupAddCard);
 
-popupImage.setEventListeners();
+popupFullImage.setEventListeners();
