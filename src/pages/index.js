@@ -21,14 +21,15 @@ import UserInfo from "../components/UserInfo.js";
 
 const createCard = (cardData) => {
   const newCard = new Card(cardData, cardSelector, handleCardClick).generateCard();
-  cardsList.addItem(newCard);
+  return newCard
 }
 
 const cardsList = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      createCard(cardData);
+      const newCard = createCard(cardData);
+      cardsList.addItem(newCard);
     }
   },
   cardsContainerElement
@@ -49,7 +50,8 @@ const popupEditProfile = new PopupWithForm(
 const popupAddCard = new PopupWithForm(
   addCardPopup,
   (cardData) => {
-    createCard(cardData);
+    const newCard = createCard(cardData);
+    cardsList.addItem(newCard);
     popupAddCard.close();
   },
   addCardFormValidator
