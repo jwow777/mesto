@@ -27,4 +27,4 @@
 
 ---
 
-[Посмотреть работу](https://jwow777.github.io/mesto/)
+[Посмотреть работу](https://jwow777.github.io/mesto/src/)
