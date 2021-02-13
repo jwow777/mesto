@@ -4,25 +4,6 @@ constructor({baseUrl, headers}) {
     this._headers = headers;
   }
 
-  // _fetch(url, method, body) {
-  //   fetch(`${this._baseUrl}${url}`, { 
-  //     const arguments = {
-  //       method: method, 
-  //       headers: this._headers 
-  //     }
-  //     if (body) {
-  //       arguments.body = JSON.stringify(body); 
-  //     }
-  //   })
-  //   .then(res => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-
-  //     return Promise.reject(`Ошибка: ${res.status}`);
-  //   });
-  // }
-
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, { method: 'GET', headers: this._headers })      
       .then(res => {

@@ -4,6 +4,10 @@ export default class Section {
     this._container = cardsContainer;
   }
 
+  addItemArr(element) {
+    this._container.append(element);
+  }
+
   addItem(element) {
     this._container.prepend(element);
   }
