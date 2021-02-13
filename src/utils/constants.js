@@ -4,6 +4,7 @@ const editProfilePopup = document.querySelector(".popup_type_edit");
 const editProfileForm = document.querySelector(".popup__form_type_edit");
 const authorName = document.querySelector(".profile__full-name");
 const authorDescription = document.querySelector(".profile__description");
+const authorAvatar = document.querySelector(".profile__avatar-image");
 const nameInput = document.querySelector(".popup__input_type_name");
 const descriptionInput = document.querySelector(".popup__input_type_desc");
 
@@ -20,6 +21,12 @@ const openPopupImage = document.querySelector(".popup_overlay_image");
 const popupImage = document.querySelector(".popup__image");
 const popupDescription = document.querySelector(".popup__description");
 
+const updateAvatarPopup = document.querySelector(".popup_type_avatar");
+const updateAvatarForm = document.querySelector(".popup__form_type_avatar");
+const avatarButton = document.querySelector(".profile__overlay");
+
+const deletePopup = document.querySelector(".popup_type_delete");
+
 const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -30,12 +37,12 @@ const config = {
 };
 
 export {
-  editButton, editProfilePopup, editProfileForm,
-  authorName, authorDescription,
-  nameInput, descriptionInput,
+  editButton, editProfilePopup, editProfileForm, avatarButton,
+  authorName, authorDescription, authorAvatar,
+  nameInput, descriptionInput, deletePopup,
   addButton, addCardPopup, addCardForm,
   titleCardInput, linkCardInput,
   cardsContainerElement, cardSelector,
-  config,
+  config, updateAvatarPopup, updateAvatarForm,
   openPopupImage, popupImage, popupDescription
 };
