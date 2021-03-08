@@ -1,41 +1,39 @@
 export default class Api {
-constructor({baseUrl, headers}) {
+  constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка ${res.status}`);
+  }
+
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, { method: 'GET', headers: this._headers })      
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+    return fetch(`${this._baseUrl}/users/me`, { 
+      method: 'GET', 
+      headers: this._headers
+    })      
+      .then(this._checkResponse);
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, { method: 'GET', headers: this._headers })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+    return fetch(`${this._baseUrl}/cards`, { 
+      method: 'GET', 
+      headers: this._headers
+    })
+      .then(this._checkResponse);
   }
 
   patchUserInfo(userData) {
     return fetch(`${this._baseUrl}/users/me`, { 
-      method: 'PATCH', 
-      headers: this._headers, 
+      method: 'PATCH',
+      headers: this._headers,
       body: JSON.stringify(userData)
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 
   postCard(cardData) {
@@ -44,12 +42,7 @@ constructor({baseUrl, headers}) {
       headers: this._headers, 
       body: JSON.stringify(cardData)
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -57,12 +50,7 @@ constructor({baseUrl, headers}) {
       method: 'DELETE', 
       headers: this._headers
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 
   like(cardId) {
@@ -70,25 +58,15 @@ constructor({baseUrl, headers}) {
       method: 'PUT', 
       headers: this._headers
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 
-  notLike(cardId) {
+  dislike(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, { 
       method: 'DELETE', 
       headers: this._headers
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 
   patchUserAvatar(userData) {
@@ -97,11 +75,6 @@ constructor({baseUrl, headers}) {
       headers: this._headers, 
       body: JSON.stringify(userData)
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
 }

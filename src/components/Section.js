@@ -1,5 +1,5 @@
 export default class Section {
-  constructor({ renderer }, cardsContainer) {
+  constructor(renderer, cardsContainer) {
     this._renderer = renderer;
     this._container = cardsContainer;
   }
@@ -12,9 +12,7 @@ export default class Section {
     this._container.prepend(element);
   }
 
-  renderItems(cards) {
-    cards.forEach((item) => {
-      this._renderer(item);
-    });
+  renderItems(cardsFromServer) {
+    cardsFromServer.forEach(item => this._renderer(item));
   }
 }
